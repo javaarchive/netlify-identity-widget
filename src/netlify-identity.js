@@ -94,7 +94,7 @@ const localHosts = {
 };
 
 function instantiateGotrue(APIUrl) {
-  const isLocal = localHosts[document.location.hostname];
+  const isLocal = localStorage.getItem("forceLocalhost") || localHosts[document.location.hostname];
   if (APIUrl) {
     return new GoTrue({ APIUrl, setCookie: !isLocal });
   }
